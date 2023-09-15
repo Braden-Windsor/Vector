@@ -22,6 +22,12 @@ vector::vector(const vector &other){
   }
 }
 
+vector::~vector(){
+  delete[] vec_ptr;
+  vec_size = 0;
+  vec_capacity = 0;
+}
+
 vector& vector::operator=(const vector &other) {
   // Check for self-assignment
   if (this == &other) {
