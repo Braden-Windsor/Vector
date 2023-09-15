@@ -6,7 +6,7 @@ using namespace std;
 
 vector::vector(){
   //Sets all values to 0 to initalize them
-  vec_ptr = NULL;
+  vec_ptr = nullptr;
   vec_size = 0;
   vec_capacity = 0;
   
@@ -29,8 +29,6 @@ vector::vector(const vector &other){
 vector::~vector(){
   //clears out all data by setting them to 0 and deallocates array memory
   delete[] vec_ptr;
-  vec_size = 0;
-  vec_capacity = 0;
 }
 
 vector& vector::operator=(const vector &other) {
@@ -55,6 +53,9 @@ vector& vector::operator=(const vector &other) {
   return *this;
 }
 
+int& vector::operator[](unsigned int index){
+  return vec_ptr[index];
+}
 
 int vector::size(){
   return vec_size;
@@ -71,9 +72,10 @@ void vector::reserve(int n){
 }
 
 void vector::push_back(int element){
-  int spot = vec_size + 1;
+  int spot = vec_size;
   if(spot > vec_capacity){
     reserve(vec_capacity * 2);
   }
   vec_ptr[spot] = element;
+  vec_size++;
 }

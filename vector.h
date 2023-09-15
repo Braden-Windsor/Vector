@@ -15,7 +15,8 @@ class vector {
  public:
   vector();
   vector(const vector &other);
-
+  ~vector();
+  
   vector& operator=(const vector &other);
 
   int size();
@@ -26,7 +27,6 @@ class vector {
 
   int& operator[](unsigned int index);
   
-  ~vector();
   
 };
 
